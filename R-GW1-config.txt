@@ -1,0 +1,87 @@
+Building configuration...
+
+Current configuration : 1008 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO1941/K9 sn FTX1524F9OV-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 192.168.50.2 255.255.255.0
+ duplex auto
+ speed auto
+ standby 1 ip 192.168.50.1
+ standby 1 priority 110
+ standby 1 preempt
+!
+interface GigabitEthernet0/1
+ ip address 192.168.60.1 255.255.255.0
+ ip access-group 120 in
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+access-list 120 permit tcp 192.168.60.0 0.0.0.255 192.168.50.0 0.0.0.255 established
+access-list 120 permit icmp 192.168.60.0 0.0.0.255 192.168.50.0 0.0.0.255 echo-reply
+access-list 120 deny ip 192.168.60.0 0.0.0.255 192.168.50.0 0.0.0.255
+access-list 120 permit ip any any
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
