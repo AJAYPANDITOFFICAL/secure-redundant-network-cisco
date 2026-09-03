@@ -17,16 +17,16 @@ through R-GW1.
 - DMZ with a stateful-style ACL (established/echo-reply based)
 
 ## IP Addressing
-PART 1 — IP Addressing (as built)
-| Segment	                                     | Subnet	                               |  Notes
-|--|--|
-| Internal LAN	                                | 192.168.50.0/24                        	| Staff PCs
-| HSRP Virtual Gateway IP                     	| 192.168.50.1	                          | Shared — PCs point here
-| R-GW1 real IP                               	| 192.168.50.2                            | (Gig0/0)	Active, priority 110, preempt
-| R-GW2 real IP                                	| 192.168.50.3                            | (Gig0/0)	Standby, priority 100
-| DMZ segment                                 	| 192.168.60.0/24                       	| Web server
-| R-GW1 DMZ interface	                          | 192.168.60.1                            | (Gig0/1)	
-| SRV-WEB                                      	| 192.168.60.10	                          | Public-facing server
+
+| Segment | Subnet | Notes |
+|---|---|---|
+| Internal LAN | 192.168.50.0/24 | Staff PCs |
+| HSRP Virtual Gateway IP | 192.168.50.1 | Shared — PCs point here |
+| R-GW1 real IP | 192.168.50.2 (Gig0/0) | Active, priority 110, preempt |
+| R-GW2 real IP | 192.168.50.3 (Gig0/0) | Standby, priority 100 |
+| DMZ segment | 192.168.60.0/24 | Web server |
+| R-GW1 DMZ interface | 192.168.60.1 (Gig0/1) | |
+| SRV-WEB | 192.168.60.10 | Public-facing server |
 
 ## Key Verification
 - `show etherchannel summary` — Po1 bundled (SU), both member ports (P)
